@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import MovieDetail from "./MovieDetail";
+import MovieItem from "./MovieItem";
 
 const Movie = () => {
   const [movie, setMovie] = useState({
+    id: "",
     title: "",
     rating: "",
-    story: "",
+    summary: "",
     medium_cover_image: "",
   });
+
+  function update(e) {
+    // console.log(e.target.value);
+    setMovie({
+      ...movie,
+      [e.target.name]: e.target.value, //Computed property names 문법.
+    });
+    console.log(movie);
+  }
 
   function inputHandle(e) {
     // console.log(e.target.value);
@@ -61,7 +73,7 @@ const Movie = () => {
         <input
           type="text"
           name="story"
-          value={movie.story}
+          value={movie.summary}
           onChange={inputHandle}
           placeholder="줄거리"
         />
@@ -76,6 +88,7 @@ const Movie = () => {
         <br />
         <button onClick={submitMovie}>등록</button>
       </form>
+      <MovieDetail update={update}></MovieDetail>
     </div>
   );
 };

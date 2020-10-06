@@ -1,31 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const MovieItem = (props) => {
-  const { id, title, rating, medium_cover_image } = props.movie;
-  const deleteById = props.deleteById;
+const Card = styled.div`
+  height: 200px;
+  width: 500px;
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 10px;
+  box-shadow: 1px 1px 0px rgb(54, 53, 53);
+  display: flex;
+  align-items: center;
+`;
+const Cardbody = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+const CardImage = styled.image`
+  height: 50px;
+  width: 100%;
+`;
+const CardButton = styled.button`
+  color: white;
+  width: 70px;
+  height: 30px;
+  background-color: gray;
+  box-shadow: 1px 1px 0px 0px rgb(167, 111, 111);
+`;
+const CardTitle = styled.h3`
+  align-items: center;
+`;
 
-  const Card = styled.div`
-    height: 500px;
-    border: 1px solid rgb(197, 197, 197);
-    border-radius: 10px;
-    box-shadow: 1px 1px 0px rgb(54, 53, 53);
-  `;
-  const Cardbody = styled.div`
-    padding-left: 30px;
-  `;
-  const Image = styled.image`
-    height: 100px;
-    width: 100%;
-  `;
+const MovieItem = (props) => {
+  const { id, title, medium_cover_image } = props.movie;
+  const deleteById = props.deleteById;
+  const detail = props.detail;
 
   return (
     <Card>
-      <Image src={medium_cover_image} />
+      <img src={medium_cover_image} />
       <Cardbody>
-        <h4>{title}</h4>
-        <p>평점 {rating}</p>
-        <button onClick={() => deleteById(id)}>삭제</button>
+        <Link to={`/MovieDetail/${id}`}>
+          <CardTitle>{title}</CardTitle>
+        </Link>
+
+        <CardButton onClick={() => deleteById(id)}>삭제</CardButton>
       </Cardbody>
     </Card>
   );
