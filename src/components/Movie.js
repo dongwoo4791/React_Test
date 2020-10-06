@@ -11,15 +11,6 @@ const Movie = () => {
     medium_cover_image: "",
   });
 
-  function update(e) {
-    // console.log(e.target.value);
-    setMovie({
-      ...movie,
-      [e.target.name]: e.target.value, //Computed property names 문법.
-    });
-    console.log(movie);
-  }
-
   function inputHandle(e) {
     // console.log(e.target.value);
     setMovie({
@@ -72,7 +63,7 @@ const Movie = () => {
         <br />
         <input
           type="text"
-          name="story"
+          name="summary"
           value={movie.summary}
           onChange={inputHandle}
           placeholder="줄거리"
@@ -88,7 +79,6 @@ const Movie = () => {
         <br />
         <button onClick={submitMovie}>등록</button>
       </form>
-      <MovieDetail update={update}></MovieDetail>
     </div>
   );
 };
