@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const MovieDetail = (props) => {
   const id = props.match.params.id;
-  const update = props.update;
   const [movie, setMovie] = useState({
     id: "",
     title: "",

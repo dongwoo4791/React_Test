@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import MovieItem from "./MovieItem";
-
-const GridCard = styled.div`
-  display: grid;
-  flex-direction: column;
-  grid-template-columns: auto auto auto;
-  grid-gap: 30px;
-  margin: 10px;
-  justify-content: space-around;
-`;
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState([]);

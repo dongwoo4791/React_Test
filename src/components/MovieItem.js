@@ -16,10 +16,6 @@ const Cardbody = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const CardImage = styled.image`
-  height: 50px;
-  width: 100%;
-`;
 const CardButton = styled.button`
   color: white;
   width: 70px;
@@ -34,7 +30,6 @@ const CardTitle = styled.h3`
 const MovieItem = (props) => {
   const { id, title, medium_cover_image } = props.movie;
   const deleteById = props.deleteById;
-  const detail = props.detail;
 
   return (
     <Card>
